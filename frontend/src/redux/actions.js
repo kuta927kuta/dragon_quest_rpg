@@ -14,3 +14,14 @@ export const setPlayerSuccess = createAction("SET_PLAYER");
 export const getPlayerDetailRequest = createAction("GET_PLAYER_DETAIL_REQUEST");
 export const getPlayerDetailSuccess = createAction("GET_PLAYER_DETAIL_SUCCESS");
 export const getPlayerDetailFailure = createAction("GET_PLAYER_DETAIL_FAILURE");
+
+// 装備取得（店）
+export const getStoreEquipmentRequest = createAction(
+  "GET_STORE_EQUIPMENT_REQUEST"
+);
+export const getStoreEquipmentSuccess = createAction(
+  "GET_STORE_EQUIPMENT_SUCCESS"
+);
+export const getStoreEquipmentFailure = createAction(
+  "GET_STORE_EQUIPMENT_FAILURE"
+);

@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/* EquipmentShop.css */
+.soubi-shop {
+  height: 100%;
+  background-image: url("../images/shop_soubi2.png"), url("../images/soubi_man.png");
+  background-size: cover, contain; /* サイズを指定 */
+  background-position: center, center; /* 位置を指定 */
+  background-repeat: no-repeat, no-repeat; /* 繰り返しを無効にする */
+  z-index: -2;
+}
+
+.money {
+  border: 1px solid rgb(143, 108, 20);
+  background-color: rgb(68, 50, 4);
+  color: white;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  width: 40%;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.item-select {
+  height: 100%;
+  min-height: 100px;
+  padding: 6px 15px;
+  margin-top: 30px;
+  margin-left: 10px;
+  background-color: rgba(0, 0, 0, 0.393);
+  color: white;
+}
+.item-select .ant-col {
+  padding: 6px;
+  caret-color: transparent;
+}
+.item-select .ant-col:hover {
+  background-color: rgba(228, 228, 88, 0.676);
+}
+.item-select .no-hover {
+  pointer-events: none;
+  border-bottom: solid 1px white;
+  margin-bottom: 6px;
+}
+
+.equipment-list {
+  min-height: 370px;
+  margin-left: 20px;
+  padding: 10px;
+  background-color: rgba(36, 37, 86, 0.531);
+}
+.equipment-list .ant-row {
+  height: 100%;
+}
+.equipment-list .ant-row .ant-col {
+  color: white;
+}
+.equipment-list .ant-row .ant-col:first-child {
+  border-right: 2px solid rgba(255, 255, 255, 0.494);
+}
+
+.foot {
+  margin-top: 15px;
+  min-height: 153px;
+  color: white;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.453);
+}/*# sourceMappingURL=EquipmentShop.css.map */

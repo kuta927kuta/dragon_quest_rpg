@@ -24,7 +24,7 @@ const GameScreen = () => {
           width: 800,
           height: 600,
           maxHeight: 600,
-          background: "red",
+          background: "black",
           marginTop: "50vh",
           transform: "translateY(-50%)",
           boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
