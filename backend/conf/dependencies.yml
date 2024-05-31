@@ -1,0 +1,30 @@
+# Application dependencies
+
+require:
+  - play
+  - postgresql -> postgresql 8.3-603.jdbc4
+  - com.fasterxml.jackson.core -> jackson-databind 2.9.9
+  - com.fasterxml.jackson.core -> jackson-core 2.9.9
+  - com.fasterxml.jackson.core -> jackson-annotations 2.9.9
+  - org.projectlombok -> lombok 1.18.22
+
+  # - io.jsonwebtoken -> jjwt 0.9.0 // トークンを発行し、それを使用してユーザーの認証状態やアクセス権を管理する
+  # - hbmModules -> datedfileappender 1.0.2  // 日付付きのファイル名でログを出力する機能
+  # - com.mariten -> kanatools 1.3.0 // カナをローマ字に変換する機能
+  # - org.jodconverter -> jodconverter-local 4.3.0 // Javaでオフィスドキュメントを相互に変換するためのライブラリ
+  # - org.projectlombok -> lombok 1.18.12 // Javaのコードを簡潔にするためのライブラリ。アノテーションを使用して、冗長なコードを削減したり
+  # - com.opencsv -> opencsv 5.3 // CSV形式のデータを読み書きするためのライブラリ
+  # - com.fasterxml.jackson.core -> jackson-databind 2.8.9 // JSON形式のデータをJavaオブジェクトにマッピングするためのライブラリ
+  # - com.fasterxml.jackson.dataformat -> jackson-dataformat-xml 2.8.9 // XML形式のデータをJavaオブジェクトにマッピングするためのライブラリ
+  # - commons-codec -> commons-codec 1.10 // エンコード、デコード、ハッシュ化などの機能を提供するApache Commons Codecライブラリ
+  # - com.google.zxing -> core 3.2.1 // バーコードの生成や読み取りを行うためのライブラリ
+  # - com.google.zxing -> javase 3.2.1 // ↑のJava SEプラットフォームでの使用に特化した機能
+  # - com.beust -> jcommander 1.48 // コマンドライン引数を解析するためのライブラリ
+  # - net.arnx -> jsonic 1.3.10 // JSON形式のデータを処理するためのライブラリ
+  # - de.taimos -> totp 1.0// 二要素認証などのセキュリティ関連の機能に使用されます
+# repositories:
+#   - hbmModules:
+#       type: local
+#       artifact: "${application.path}/hbmModules/[module]-[revision]/"
+#       contains:
+#         - hbmModules -> *

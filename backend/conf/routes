@@ -1,0 +1,19 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+OPTIONS         /.*                                                 Application.options()
+# OPTIONS         /.*                                                 CorsFilter.options()
+# OPTIONS  /*path                                         controllers.CorsFilter.options(path)
+
+# Ignore favicon requests
+# GET     /favicon.ico                           i 404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Playre
+GET     /players                   PlayerController.getPlayers
+
+# player_detail
+GET     /get-player-detail/{playerId}        PlayerDetailController.getPlayerDetail
