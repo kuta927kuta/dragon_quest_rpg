@@ -20,9 +20,6 @@ public class Accessory extends GenericModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @Column(name = "accessory_id")
-    public Integer accessoryId;
-
     @Column(name = "name")
     public String name;
 

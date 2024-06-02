@@ -18,6 +18,9 @@ const GameScreen = () => {
 
   return (
     <Layout style={{ minHeight: "100vh", background: "#f0f2f5" }}>
+      <div>
+        <Button onClick={() => navigate("/")}>タイトルに戻る</Button>
+      </div>
       <Content
         style={{
           margin: "0 auto",
@@ -30,9 +33,7 @@ const GameScreen = () => {
           boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <div>
-          <Button onClick={() => navigate("/")}>タイトルに戻る</Button>
-        </div>
+
         {loading ? (
           <LoadingScreen />
         ) : (

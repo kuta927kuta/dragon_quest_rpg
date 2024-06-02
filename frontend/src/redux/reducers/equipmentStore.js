@@ -9,7 +9,7 @@ const initialState = {
   loading: false,
   weapons: [],
   armors: [],
-  accessories: [],
+  accessorys: [],
   error: null,
 };
 
@@ -23,7 +23,7 @@ const equipmentReducer = createReducer(initialState, (builder) => {
       state.loading = false;
       state.weapons = action.payload.weapons;
       state.armors = action.payload.armors;
-      state.accessories = action.payload.accessories;
+      state.accessorys = action.payload.accessorys;
       state.error = null;
     })
     .addCase(getStoreEquipmentFailure, (state, action) => {

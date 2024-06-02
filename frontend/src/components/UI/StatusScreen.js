@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Row, Col, Layout, Image as AntdImage } from "antd";
 
 import "./style.css";
+import { formattedMoney } from "../../common/function_common/common";
 import playerImage from "../../images/player_image.png";
 
 const { Header, Sider, Content } = Layout;
@@ -58,7 +59,7 @@ const StatusScreen = ({ data, handleCloseStatus }) => {
               <Col span={24}>
                 {status.mp}/{status.mp}
               </Col>
-              <Col span={24}>{data.money}</Col>
+              <Col span={24}>{formattedMoney(data.money)} G</Col>
             </Sider>
             <Content className="content">
               <Row style={{ height: "40%" }} className="content-1">

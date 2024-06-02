@@ -20,9 +20,6 @@ public class Armor extends GenericModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @Column(name = "armor_id")
-    public Integer armorId;
-
     @Column(name = "name")
     public String name;
 

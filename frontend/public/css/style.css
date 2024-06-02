@@ -1,11 +1,20 @@
 * {
     caret-color: transparent;
     user-select: none;
+
     /* cursor: url('../images/basic.cur'), auto; */
     .ant-btn {
         cursor: url('../images/basic.cur'), auto !important;
     }
+
     .ant-card {
+        cursor: url('../images/basic.cur'), auto !important;
+    }
+
+    a,
+    .ant-pagination-disabled,
+    .ant-pagination-item,
+    .ant-pagination-next {
         cursor: url('../images/basic.cur'), auto !important;
     }
 }
