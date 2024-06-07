@@ -18,20 +18,45 @@ public class Armor extends GenericModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private int id;
 
     @Column(name = "name")
-    public String name;
+    private String name;
 
     @Column(name = "defense")
-    public Integer defense;
+    private Integer defense;
 
     @Column(name = "description")
-    public String description;
+    private String description;
 
     @Column(name = "price")
-    public Integer price;
+    private Integer price;
 
     @Column(name = "image_url")
-    public String imageUrl;
+    private String imageUrl;
+
+    // ID
+    public int getId() {
+        return id;
+    }
+    // Name
+    public String getName() {
+        return name;
+    }
+    // Defense
+    public Integer getDefense() {
+        return defense;
+    }
+    // Description
+    public String getDescription() {
+        return description;
+    }
+    // Price
+    public Integer getPrice() {
+        return price;
+    }
+    // Image URL
+    public String getImageUrl() {
+        return imageUrl;
+    }
 }

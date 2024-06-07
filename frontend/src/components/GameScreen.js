@@ -7,7 +7,7 @@ import LoadingScreen from "./LoadingScreen";
 import StartScreen from "./StartScreen";
 import PlayerList from "./PlayerList";
 import StreetScreen from "./StreetScreen";
-import EquipmentShop from "./EquipmentShop";
+import EquipmentShop from "../pages/equipmentShop";
 
 const { Content } = Layout;
 
@@ -33,7 +33,6 @@ const GameScreen = () => {
           boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
         }}
       >
-
         {loading ? (
           <LoadingScreen />
         ) : (

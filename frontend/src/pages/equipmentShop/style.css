@@ -2,7 +2,7 @@
 /* EquipmentShop.css */
 .soubi-shop {
   height: 100%;
-  background-image: url("../images/shop_soubi2.png");
+  background-image: url("../../images/shop_soubi2.png");
   background-size: cover;
   /* サイズを指定 */
   background-position: center;
@@ -60,6 +60,9 @@
 }
 .equipment-list .ant-row .ant-col {
   color: white;
+}
+.equipment-list .ant-row .ant-col .ant-list .ant-list-empty-text {
+  display: none;
 }
 .equipment-list .ant-row .ant-col .ant-list-item {
   color: white;
@@ -138,4 +141,4 @@
 }
 .foot .ant-row > .ant-col:nth-child(3) .ant-row .ant-col:first-child {
   margin-right: 10px;
-}/*# sourceMappingURL=EquipmentShop.css.map */
+}/*# sourceMappingURL=style.css.map */

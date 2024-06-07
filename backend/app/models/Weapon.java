@@ -18,23 +18,45 @@ public class Weapon extends GenericModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private int id;
 
     @Column(name = "name")
-    public String name;
+    private String name;
 
     @Column(name = "attack")
-    public Integer attack;
+    private Integer attack;
 
     @Column(name = "description")
-    public String description;
+    private String description;
 
     @Column(name = "price")
-    public Integer price;
-
-    @Column(name = "level_requirement")
-    public Integer levelRequirement;
+    private Integer price;
 
     @Column(name = "image_url")
-    public String imageUrl;
+    private String imageUrl;
+
+    // ID
+    public int getId() {
+        return id;
+    }
+    // Name
+    public String getName() {
+        return name;
+    }
+    // Attack
+    public Integer getAttack() {
+        return attack;
+    }
+    // Description
+    public String getDescription() {
+        return description;
+    }
+    // Price
+    public Integer getPrice() {
+        return price;
+    }
+    // Image URL
+    public String getImageUrl() {
+        return imageUrl;
+    }
 }

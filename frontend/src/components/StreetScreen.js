@@ -6,7 +6,12 @@ import { useDispatch } from "react-redux";
 
 import StreetCard from "./UI/StreetCard";
 import streetImage from "../images/street_image.png"; // 街の画像
-import { getPlayerDetail } from "../redux/thunks/player";
+import {
+  getPlayerDetail,
+  getItemBag,
+  getEquipmentBag,
+  getMaterialBag,
+} from "../redux/thunks/player";
 import StatusScreen from "./UI/StatusScreen";
 
 const StreetScreen = () => {
@@ -20,35 +25,26 @@ const StreetScreen = () => {
     // playerDataを元にplayerDetailを読み込む（装備やアイテムや状態など）
     if (player) {
       dispatch(getPlayerDetail(player.id));
+      dispatch(getItemBag(player.id));
+      dispatch(getEquipmentBag(player.id));
+      dispatch(getMaterialBag(player.id));
     }
   }, [player]);
 
-  const handleGoToDungeon = () => {
-    // ダンジョン選択画面に移動
-    // navigate("/select_dungeons");
-  };
+  const handleGoToDungeon = () => navigate("/select_dungeons");
+  const handleSave = () => console.log("データを保存");
+  const handleGoToItemShop = () => console.log("アイテム屋に移動");
+  const handleGoToEquipmentShop = () => navigate("/soubi_shop");
+  const handleViewStatus = () => setShowStatus(true);
+  const handleCloseStatus = () => setShowStatus(false);
 
-  const handleSave = () => {
-    // データの保存
-    console.log("データを保存");
-  };
-
-  const handleGoToItemShop = () => {
-    console.log("アイテム屋に移動");
-  };
-
-  const handleGoToEquipmentShop = () => {
-    navigate("/soubi_shop");
-  };
-
-  // status画面
-  const handleViewStatus = () => {
-    setShowStatus(true);
-  };
-  // status画面閉じる
-  const handleCloseStatus = () => {
-    setShowStatus(false);
-  };
+  const actions = [
+    { description: "ダンジョンに行く", onClick: handleGoToDungeon },
+    { description: "アイテム屋に行く", onClick: handleGoToItemShop },
+    { description: "装備屋に行く", onClick: handleGoToEquipmentShop },
+    { description: "ステータスを見る", onClick: handleViewStatus },
+    { description: "記録する", onClick: handleSave },
+  ];
 
   return (
     <div
@@ -68,34 +64,14 @@ const StreetScreen = () => {
         <>
           <h1 style={{ color: "white" }}>ここは街です</h1>
           <Row style={{ width: "50%" }}>
-            <Col span={24}>
-              <StreetCard
-                description="ダンジョンに行く"
-                onClick={handleGoToDungeon}
-              />
-            </Col>
-            <Col span={24}>
-              <StreetCard
-                description="アイテム屋に行く"
-                onClick={handleGoToItemShop}
-              />
-            </Col>
-            <Col span={24}>
-              <StreetCard
-                description="装備屋に行く"
-                onClick={handleGoToEquipmentShop}
-              />
-            </Col>
-            <Col span={24}>
-              <StreetCard
-                description="ステータスを見る"
-                onClick={handleViewStatus}
-              />
-            </Col>
-
-            <Col span={24}>
-              <StreetCard description="記録する" onClick={handleSave} />
-            </Col>
+            {actions.map((action, index) => (
+              <Col key={index} span={24}>
+                <StreetCard
+                  description={action.description}
+                  onClick={action.onClick}
+                />
+              </Col>
+            ))}
           </Row>
         </>
       ) : (

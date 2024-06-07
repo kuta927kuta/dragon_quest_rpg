@@ -1,37 +1,83 @@
 package models;
 
-import lombok.Getter;
-import lombok.Setter;
 import play.db.jpa.GenericModel;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "equipment_bag")
-@Getter
-@Setter
 public class EquipmentBag extends GenericModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private int id;
 
     @Column(name = "player_id")
-    public Integer playerId;
+    private Integer playerId;
 
     @Column(name = "weapon_id")
-    public Integer weaponId;
+    private Integer weaponId;
+
+    @ManyToOne
+    @JoinColumn(name = "weapon_id", insertable = false, updatable = false)
+    public Weapon weapon;
 
     @Column(name = "armor_id")
-    public Integer armorId;
+    private Integer armorId;
+
+    @ManyToOne
+    @JoinColumn(name = "armor_id", insertable = false, updatable = false)
+    public Armor armor;
 
     @Column(name = "accessory_id")
-    public Integer accessoryId;
+    private Integer accessoryId;
+
+    @ManyToOne
+    @JoinColumn(name = "accessory_id", insertable = false, updatable = false)
+    public Accessory accessory;
 
     @Column(name = "quantity")
-    public Integer quantity;
+    private Integer quantity;
+
+    // ID
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    // Player ID
+    public Integer getPlayerId() {
+        return playerId;
+    }
+    public void setPlayerId(Integer playerId) {
+        this.playerId = playerId;
+    }
+    // Weapon ID
+    public Integer getWeaponId() {
+        return weaponId;
+    }
+    public void setWeaponId(Integer weaponId) {
+        this.weaponId = weaponId;
+    }
+    // Armor ID
+    public Integer getArmorId() {
+        return armorId;
+    }
+    public void setArmorId(Integer armorId) {
+        this.armorId = armorId;
+    }
+    // Accessory ID
+    public Integer getAccessoryId() {
+        return accessoryId;
+    }
+    public void setAccessoryId(Integer accessoryId) {
+        this.accessoryId = accessoryId;
+    }
+    // Quantity
+    public Integer getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 }

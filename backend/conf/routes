@@ -29,3 +29,9 @@ GET /get-player-detail/{playerId} PlayerDetailController.getPlayerDetail
 # store_equ
 
 GET /get-store-equipment StoreEquipmentController.getStoreEquipment
+
+# bag
+
+GET /get-player-item-bag/{playerId} PlayerBagController.getItemBag
+GET /get-player-equipment-bag/{playerId} PlayerBagController.getEquipmentBag
+GET /get-player-material-bag/{playerId} PlayerBagController.getMaterialBag

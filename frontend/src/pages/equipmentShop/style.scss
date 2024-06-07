@@ -1,7 +1,7 @@
 /* EquipmentShop.css */
 .soubi-shop {
     height: 100%;
-    background-image: url('../images/shop_soubi2.png');
+    background-image: url('../../images/shop_soubi2.png');
     background-size: cover;
     /* サイズを指定 */
     background-position: center;
@@ -69,6 +69,9 @@
 
             // 装備リスト
             .ant-list {
+                .ant-list-empty-text {
+                    display: none;
+                }
                 &-item {
                     &:hover {
                         background-color: rgba(228, 228, 88, 0.676);
@@ -78,6 +81,7 @@
                     padding: 9px;
                     font-size: 16px;
                     border: none;
+                    
                 }
             }
 
