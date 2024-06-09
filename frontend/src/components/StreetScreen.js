@@ -33,7 +33,7 @@ const StreetScreen = () => {
 
   const handleGoToDungeon = () => navigate("/select_dungeons");
   const handleSave = () => console.log("データを保存");
-  const handleGoToItemShop = () => console.log("アイテム屋に移動");
+  const handleGoToItemShop = () => navigate("/item_shop");
   const handleGoToEquipmentShop = () => navigate("/soubi_shop");
   const handleViewStatus = () => setShowStatus(true);
   const handleCloseStatus = () => setShowStatus(false);

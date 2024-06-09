@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/* ItemShop.css */
+.item-shop {
+  height: 100%;
+  background-image: url("../../images/item_store.png");
+  background-size: cover;
+  /* サイズを指定 */
+  background-position: center;
+  /* 位置を指定 */
+  background-repeat: no-repeat;
+  /* 繰り返しを無効にする */
+  z-index: -2;
+}
+
+.money {
+  border: 1px solid rgb(143, 108, 20);
+  background-color: rgb(68, 50, 4);
+  color: white;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  width: 40%;
+}
+
+.content {
+  margin-top: 13px;
+}
+
+.side-list {
+  height: 100%;
+  min-height: 100px;
+  padding: 6px 15px;
+  margin-top: 45px;
+  margin-left: 10px;
+  background-color: rgba(0, 0, 0, 0.393);
+  color: white;
+}
+.side-list .ant-col {
+  padding: 6px;
+  caret-color: transparent;
+}
+.side-list .ant-col:hover {
+  background-color: rgba(228, 228, 88, 0.676);
+}
+.side-list .no-hover {
+  pointer-events: none;
+  border-bottom: solid 1px white;
+  margin-bottom: 6px;
+}
+
+.main-list {
+  min-height: 300px;
+  max-height: 340px;
+  margin-left: 20px;
+  padding: 10px 0;
+  background-color: rgba(36, 37, 86, 0.531);
+}
+.main-list .ant-row {
+  height: 100%;
+}
+.main-list .ant-row .ant-col {
+  color: white;
+}
+.main-list .ant-row .ant-col .ant-list .ant-list-empty-text {
+  display: none;
+}
+.main-list .ant-row .ant-col .ant-list-item {
+  color: white;
+  padding: 9px;
+  font-size: 16px;
+  border: none;
+}
+.main-list .ant-row .ant-col .ant-list-item:hover {
+  background-color: rgba(228, 228, 88, 0.676);
+}
+.main-list .ant-row .ant-col .ant-col:first-child {
+  text-align: left;
+}
+.main-list .ant-row .ant-col .ant-col:last-child {
+  text-align: right;
+}
+.main-list .ant-row > .ant-col:first-child {
+  border-right: 2px solid rgba(255, 255, 255, 0.494);
+}
+
+.pagination .ant-pagination {
+  color: white;
+  text-align: right;
+  margin-top: 6px;
+}
+.pagination .ant-pagination a {
+  color: white;
+}
+.pagination .ant-pagination .ant-pagination-item {
+  min-width: 0;
+}
+.pagination .ant-pagination .ant-pagination-item a {
+  color: white;
+}
+.pagination .ant-pagination .ant-pagination-item-active {
+  background-color: transparent;
+  border: none;
+}
+.pagination .ant-pagination .ant-pagination-item-active a {
+  font-weight: bold;
+  color: rgba(227, 125, 9, 0.985);
+}
+.pagination .ant-pagination .ant-pagination-simple-pager input {
+  background-color: transparent;
+}
+
+.foot {
+  margin-top: 15px;
+  height: 160px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  color: white;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.453);
+}
+.foot .ant-row {
+  width: 100%;
+}
+.foot .ant-row > .ant-col:nth-child(2) {
+  text-align: left;
+}
+.foot .ant-row > .ant-col:nth-child(3) {
+  text-align: left;
+  padding-left: 10px;
+  border-left: 2px dashed rgba(255, 255, 255, 0.494);
+}
+.foot .ant-row > .ant-col:nth-child(3) .ant-row {
+  margin-top: 20px;
+}
+.foot .ant-row > .ant-col:nth-child(3) .ant-row .ant-col {
+  padding: 3px 6px;
+}
+.foot .ant-row > .ant-col:nth-child(3) .ant-row .ant-col:hover {
+  background-color: rgba(228, 228, 88, 0.676);
+}
+.foot .ant-row > .ant-col:nth-child(3) .ant-row .ant-col:first-child {
+  margin-right: 10px;
+}/*# sourceMappingURL=style.css.map */

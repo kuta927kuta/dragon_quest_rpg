@@ -30,6 +30,10 @@ GET /get-player-detail/{playerId} PlayerDetailController.getPlayerDetail
 
 GET /get-store-equipment StoreEquipmentController.getStoreEquipment
 
+# store_item
+
+GET /get-store-item StoreItemController.getStoreItem
+
 # bag
 
 GET /get-player-item-bag/{playerId} PlayerBagController.getItemBag

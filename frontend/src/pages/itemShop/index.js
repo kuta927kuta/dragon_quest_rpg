@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "antd";
-import { getStoreEquipment } from "../../redux/thunks/equipmentStore";
+import { getStoreItem } from "../../redux/thunks/itemStore";
 import {
   setPlayerDetail,
   setEquipmentBag,
@@ -10,27 +10,30 @@ import {
   setMaterialBag,
 } from "../../redux/thunks/player";
 import { formattedMoney } from "../../common/function_common/common";
-import ItemList from "./ItemList";
-import EquipmentList from "./EquipmentList";
-import BottomMessage from "./BottomMessage";
+import SideList from "./UI/SideList";
+import MainList from "./UI/MainList";
+import BottomMessage from "./UI/BottomMessage";
+import { storeQuote as quote } from "./UI/text"; // セリフ
 
 import "./style.css";
 const _ = require("lodash");
 
-const EquipmentShop = () => {
+const ItemShop = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { detail, itemBag, equipmentBag, materialBag } = useSelector(
     (state) => state.player
   );
-  const { loading, weapons, armors, accessorys } = useSelector(
+  const { loading, items } = useSelector(
     (state) => state.equipmentStore
   );
-  const [message, setMessage] = useState("・・・いらっしゃい");
+  // const { store } = useSelector((state) => state);
+
+  const [message, setMessage] = useState(quote.welcome);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [equipment, setEquipment] = useState(null);
+  const [item, setItem] = useState(null);
 
   // 監視変数の設定
   let moneyWatch = detail?.money;
@@ -38,97 +41,98 @@ const EquipmentShop = () => {
   let equipmentBagWatch = equipmentBag;
   let materialBagWatch = materialBag;
 
-  // 各購入リストの取得
+  // 販売アイテムリストの取得
   useEffect(() => {
-    dispatch(getStoreEquipment());
+    dispatch(getStoreItem());
   }, []);
 
-  // 所持金やアイテムの変更がある場合にstoreの更新
-  useEffect(() => {
-    console.log("所持金変更発火");
-    // 数値だと変更されないらしい
-    if (detail) {
-      let copy = _.cloneDeep(detail);
-      copy.money = moneyWatch;
-      dispatch(setPlayerDetail(copy));
-    }
-  }, [moneyWatch]);
-  // バッグの変更がある場合にstoreの更新（アイテム、装備、素材）
-  useEffect(() => {
-    if (itemBag) {
-      let copy = _.cloneDeep(itemBag);
-      copy = itemBagWatch;
-      dispatch(setItemBag(copy));
-    }
-  }, [itemBagWatch]);
-  useEffect(() => {
-    if (equipmentBag) {
-      let copy = _.cloneDeep(equipmentBag);
-      copy = equipmentBagWatch;
-      dispatch(setEquipmentBag(copy));
-    }
-  }, [equipmentBagWatch]);
-  useEffect(() => {
-    if (materialBag) {
-      let copy = _.cloneDeep(materialBag);
-      copy = materialBagWatch;
-      dispatch(setMaterialBag(copy));
-    }
-  }, [materialBagWatch]);
+  // // 所持金やアイテムの変更がある場合にstoreの更新
+  // useEffect(() => {
+  //   console.log("所持金変更発火");
+  //   // 数値だと変更されないらしい
+  //   if (detail) {
+  //     let copy = _.cloneDeep(detail);
+  //     copy.money = moneyWatch;
+  //     dispatch(setPlayerDetail(copy));
+  //   }
+  // }, [moneyWatch]);
+  // // バッグの変更がある場合にstoreの更新（アイテム、装備、素材）
+  // useEffect(() => {
+  //   if (itemBag) {
+  //     let copy = _.cloneDeep(itemBag);
+  //     copy = itemBagWatch;
+  //     dispatch(setItemBag(copy));
+  //   }
+  // }, [itemBagWatch]);
+  // useEffect(() => {
+  //   if (equipmentBag) {
+  //     let copy = _.cloneDeep(equipmentBag);
+  //     copy = equipmentBagWatch;
+  //     dispatch(setEquipmentBag(copy));
+  //   }
+  // }, [equipmentBagWatch]);
+  // useEffect(() => {
+  //   if (materialBag) {
+  //     let copy = _.cloneDeep(materialBag);
+  //     copy = materialBagWatch;
+  //     dispatch(setMaterialBag(copy));
+  //   }
+  // }, [materialBagWatch]);
 
-  // 購入/販売
+  // 購入or販売か選択　item: text
   const handleItemClick = (item) => {
     setSelectedItem(item);
     if (item === "buy") {
-      setMessage("何が欲しいんだ");
+      setSelectedCategory(item);
+      setMessage(quote.buy);
     } else if (item === "sale") {
-      setMessage("何を売るんだ？");
+      setMessage(quote.sale);
     } else {
       setMessage("");
     }
   };
 
-  // 購入/売却のカテゴリー
+  // 購入/売却のカテゴリー選択
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    setEquipment(null);
+    setItem(null);
     if (!category) {
+      // 未選択
       setSelectedItem(null);
-      setMessage("・・・");
+      setMessage(quote.question);
     }
     setCurrentPage(1);
   };
 
-  // 装備選択
-  const handleEquipmentClick = (equipment) => setEquipment(equipment);
+  // アイテム選択 選択されれば下のメッセージでやりとり
+  const handleMainItemClick = (item) => setItem(item);
 
   // 購入
   const handleBuyClick = () => {
     // 所持金を減らして、バッグにアイテムを追加
-    console.log(equipment);
     let copy = _.cloneDeep(detail);
-    if ((copy.money -= equipment.price < 0)) {
+    if ((copy.money -= item.price < 0)) {
       console.log("購入できません。所持金が不足しています。");
       return;
     }
-    copy.money -= equipment.price;
+    copy.money -= item.price;
     dispatch(setPlayerDetail(copy));
 
-    // moneyWatch -= equipment.price;
+    // moneyWatch -= item.price;
 
-    setMessage("ありがとよ");
-    setEquipment(null);
+    setMessage(quote.buyOk);
+    setItem(null);
   };
   // 売却
   const handleSaleClick = () => {
     // 所持金を増して、バッグからアイテムを削除
 
-    setMessage("ありがとよ");
-    setEquipment(null);
+    setMessage(quote.saleOk);
+    setItem(null);
   };
   const handleQuitClick = () => {
-    setMessage(selectedItem === "buy" ? "ひやかしか？" : "なにをうるんだ？");
-    setEquipment(null);
+    setMessage(selectedItem === "buy" ? quote.quit : quote.sale);
+    setItem(null);
   };
 
   // 店を出る
@@ -138,44 +142,42 @@ const EquipmentShop = () => {
   };
 
   return (
-    <div className="soubi-shop">
+    <div className="item-shop">
       <div style={{ padding: 3 }} />
       <Row className="money">
         所持金：{formattedMoney(detail?.money) ?? 0} G
       </Row>
       <Row className="content">
-        <Col span={5} className="item-select">
+        <Col span={5} className="side-list">
           {/* 項目リスト選択 */}
-          <ItemList
+          <SideList
             selectedItem={selectedItem}
             handleCategoryClick={handleCategoryClick}
             handleItemClick={handleItemClick}
             handleOut={handleOut}
           />
         </Col>
-        <Col span={17} className={selectedCategory ? "equipment-list" : ""}>
+        <Col span={17} className={selectedCategory ? "main-list" : ""}>
           {/* 店の販売リストorアイテムバッグ */}
-          <EquipmentList
+          <MainList
             selectedCategory={selectedCategory}
-            handleEquipmentClick={handleEquipmentClick}
+            handleMainItemClick={handleMainItemClick}
             selectedItem={selectedItem}
-            weapons={weapons}
-            armors={armors}
-            accessorys={accessorys}
+            items={items}
             equipmentBag={equipmentBag}
             itemBag={itemBag}
             materialBag={materialBag}
             currentPage={currentPage}
             setMessage={setMessage}
             setCurrentPage={setCurrentPage}
-            setEquipment={setEquipment}
+            setItem={setItem}
           />
         </Col>
       </Row>
       <Row className="foot">
         {/* 下部メッセージ */}
         <BottomMessage
-          equipment={equipment}
+          item={item}
           selectedItem={selectedItem}
           message={message}
           handleBuyClick={handleBuyClick}
@@ -187,4 +189,4 @@ const EquipmentShop = () => {
   );
 };
 
-export default EquipmentShop;
+export default ItemShop;

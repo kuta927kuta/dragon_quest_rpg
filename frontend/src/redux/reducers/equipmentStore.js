@@ -1,9 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import {
-  getStoreEquipmentRequest,
-  getStoreEquipmentSuccess,
-  getStoreEquipmentFailure,
-} from "../actions";
+import { equipmentStoreActions } from "../actions/equipmentStore";
 
 const initialState = {
   loading: false,
@@ -13,23 +9,23 @@ const initialState = {
   error: null,
 };
 
-const equipmentReducer = createReducer(initialState, (builder) => {
+const equipmentStoreReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(getStoreEquipmentRequest, (state) => {
+    .addCase(equipmentStoreActions.getStoreEquipmentRequest, (state) => {
       state.loading = true;
       state.error = null;
     })
-    .addCase(getStoreEquipmentSuccess, (state, action) => {
+    .addCase(equipmentStoreActions.getStoreEquipmentSuccess, (state, action) => {
       state.loading = false;
       state.weapons = action.payload.weapons;
       state.armors = action.payload.armors;
       state.accessorys = action.payload.accessorys;
       state.error = null;
     })
-    .addCase(getStoreEquipmentFailure, (state, action) => {
+    .addCase(equipmentStoreActions.getStoreEquipmentFailure, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });
 });
 
-export default equipmentReducer;
+export default equipmentStoreReducer;

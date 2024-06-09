@@ -8,6 +8,7 @@ import StartScreen from "./StartScreen";
 import PlayerList from "./PlayerList";
 import StreetScreen from "./StreetScreen";
 import EquipmentShop from "../pages/equipmentShop";
+import ItemShop from "../pages/itemShop";
 
 const { Content } = Layout;
 
@@ -41,6 +42,7 @@ const GameScreen = () => {
             <Route path="/players" element={<PlayerList />} />
             <Route path="/street" element={<StreetScreen />} />
             <Route path="/soubi_shop" element={<EquipmentShop />} />
+            <Route path="/item_shop" element={<ItemShop />} />
           </Routes>
         )}
       </Content>

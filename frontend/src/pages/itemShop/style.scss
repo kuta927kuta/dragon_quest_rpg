@@ -1,0 +1,183 @@
+/* ItemShop.css */
+.item-shop {
+  height: 100%;
+  background-image: url('../../images/item_store.png');
+  background-size: cover;
+  /* サイズを指定 */
+  background-position: center;
+  /* 位置を指定 */
+  background-repeat: no-repeat;
+  /* 繰り返しを無効にする */
+  z-index: -2;
+}
+
+.money {
+  border: 1px solid rgb(143, 108, 20);
+  background-color: rgb(68, 50, 4);
+  color: white;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  width: 40%;
+}
+
+.content {
+  margin-top: 13px;
+}
+
+.side-list {
+  height: 100%;
+  min-height: 100px;
+  padding: 6px 15px;
+  margin-top: 45px;
+  margin-left: 10px;
+  // weight: 100%;
+  background-color: rgba(0, 0, 0, 0.393);
+  color: white;
+
+  .ant-col {
+    padding: 6px;
+    caret-color: transparent;
+
+    &:hover {
+      background-color: rgba(228, 228, 88, 0.676);
+    }
+  }
+
+  .no-hover {
+    pointer-events: none;
+    border-bottom: solid 1px white;
+    margin-bottom: 6px;
+  }
+}
+
+.main-list {
+  min-height: 300px;
+  max-height: 340px;
+  margin-left: 20px;
+  padding: 10px 0;
+  background-color: rgba(36, 37, 86, 0.531);
+
+  // 装備欄Row
+  .ant-row {
+    height: 100%;
+
+    // 装備欄右左
+    .ant-col {
+      color: white;
+
+      // 装備リスト
+      .ant-list {
+        .ant-list-empty-text {
+          display: none;
+        }
+
+        &-item {
+          &:hover {
+            background-color: rgba(228, 228, 88, 0.676);
+          }
+
+          color: white;
+          padding: 9px;
+          font-size: 16px;
+          border: none;
+
+        }
+      }
+
+      // 装備名、値段
+      .ant-col {
+        &:first-child {
+          text-align: left;
+        }
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+
+    &>.ant-col:first-child {
+      border-right: 2px solid rgba(255, 255, 255, 0.494);
+    }
+  }
+}
+
+.pagination {
+  .ant-pagination {
+    color: white;
+    text-align: right;
+    margin-top: 6px;
+
+    a {
+      color: white;
+    }
+
+    .ant-pagination-item {
+      min-width: 0;
+
+      a {
+        color: white;
+      }
+
+      &-active {
+        background-color: transparent;
+        border: none;
+
+        a {
+          font-weight: bold;
+          color: rgba(227, 125, 9, 0.985);
+        }
+      }
+    }
+
+    .ant-pagination-simple-pager input {
+      background-color: transparent;
+    }
+  }
+}
+
+// 下部メッセージ
+.foot {
+  margin-top: 15px;
+  height: 160px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  color: white;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.453);
+
+  .ant-row {
+    width: 100%;
+
+    // 装備の詳細エリア
+    >.ant-col:nth-child(2) {
+      text-align: left;
+    }
+
+    // 店主セリフエリア
+    >.ant-col:nth-child(3) {
+      text-align: left;
+      padding-left: 10px;
+      border-left: 2px dashed rgba(255, 255, 255, 0.494);
+
+      // 購入orやめる
+      .ant-row {
+        margin-top: 20px;
+
+        .ant-col {
+          padding: 3px 6px;
+
+          &:hover {
+            background-color: rgba(228, 228, 88, 0.676);
+          }
+
+          &:first-child {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

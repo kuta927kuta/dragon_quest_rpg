@@ -2,13 +2,15 @@ import { combineReducers } from "redux"; // 複数のリデューサーを一つ
 import playersReducer from "./players";
 import allReducer from "./all";
 import playerReducer from "./player";
-import equipmentReducer from "./equipmentStore";
+import equipmentStoreReducer from "./equipmentStore";
+import itemStoreReducer from "./itemStore";
 
 const rootReducer = combineReducers({
   all: allReducer,
   players: playersReducer,
   player: playerReducer,
-  store: equipmentReducer,
+  equipmentStore: equipmentStoreReducer,
+  itemStore: itemStoreReducer,
 });
 
 export default rootReducer;
