@@ -47,6 +47,10 @@ const EquipmentShop = () => {
     console.log("aaaa");
   }, []);
 
+  useEffect(() => {
+    console.log("bbbb");
+  }, []);
+
   // 所持金やアイテムの変更がある場合にstoreの更新
   useEffect(() => {
     console.log("所持金変更発火");
