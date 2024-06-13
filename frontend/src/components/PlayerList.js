@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import haikeiImage from "../images/players_data.jpg";
 import LoadingScreen from "./LoadingScreen";
-import { getPlayers } from "../redux/thunks/players";
+// import { getPlayers } from "../redux/thunks/players";
+import { getPlayers } from "../redux/features/players/playersThunks";
 import { setPlayer } from "../redux/thunks/player";
 
 const PlayerList = () => {
