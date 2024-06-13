@@ -7,7 +7,7 @@ import haikeiImage from "../images/players_data.jpg";
 import LoadingScreen from "./LoadingScreen";
 // import { getPlayers } from "../redux/thunks/players";
 import { getPlayers } from "../redux/features/players/playersThunks";
-import { setPlayer } from "../redux/thunks/player";
+import { setPlayer } from "../redux/features/player/playerSlice";
 
 const PlayerList = () => {
   const navigate = useNavigate();

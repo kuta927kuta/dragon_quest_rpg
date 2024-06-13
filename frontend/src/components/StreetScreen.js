@@ -6,16 +6,11 @@ import { useDispatch } from "react-redux";
 
 import StreetCard from "./UI/StreetCard";
 import streetImage from "../images/street_image.png"; // 街の画像
-import {
-  getPlayerDetail,
-  getItemBag,
-  getEquipmentBag,
-  getMaterialBag,
-} from "../redux/thunks/player";
+import { getPlayerDetail, getPlayerEquipmentBag, getPlayerItemBag, getPlayerMaterialBag } from "../redux/features/player/playerThunks";
 import StatusScreen from "./UI/StatusScreen";
 
 const StreetScreen = () => {
-  const { loading } = useSelector((state) => state.all);
+  // const { loading } = useSelector((state) => state.all);
   const { player, detail } = useSelector((state) => state.player);
   const [showStatus, setShowStatus] = useState(false);
   const navigate = useNavigate();
@@ -25,9 +20,9 @@ const StreetScreen = () => {
     // playerDataを元にplayerDetailを読み込む（装備やアイテムや状態など）
     if (player) {
       dispatch(getPlayerDetail(player.id));
-      dispatch(getItemBag(player.id));
-      dispatch(getEquipmentBag(player.id));
-      dispatch(getMaterialBag(player.id));
+      dispatch(getPlayerItemBag(player.id));
+      dispatch(getPlayerEquipmentBag(player.id));
+      dispatch(getPlayerMaterialBag(player.id));
     }
   }, [player]);
 

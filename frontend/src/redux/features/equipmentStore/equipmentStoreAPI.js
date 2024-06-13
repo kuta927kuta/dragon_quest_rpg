@@ -1,0 +1,1 @@
+export const getList = "/api/get-store-equipment";

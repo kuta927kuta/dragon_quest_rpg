@@ -13,7 +13,8 @@ import ItemShop from "../pages/itemShop";
 const { Content } = Layout;
 
 const GameScreen = () => {
-  const { loading } = useSelector((state) => state.all); // storeのstate.playersの情報を取得
+  // const { loading } = useSelector((state) => state.all); // storeのstate.playersの情報を取得
+  const loading = false;
   const navigate = useNavigate();
   // const location = useLocation();
 

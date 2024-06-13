@@ -2,13 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "antd";
-import { getStoreEquipment } from "../../redux/thunks/equipmentStore";
-import {
-  setPlayerDetail,
-  setEquipmentBag,
-  setItemBag,
-  setMaterialBag,
-} from "../../redux/thunks/player";
+import { getStoreEquipment } from "../../redux/features/equipmentStore/equipmentStoreThunks";
+import { setPlayerDetail, setEquipmentBag, setItemBag, setMaterialBag } from "../../redux/features/player/playerSlice";
+
 import { formattedMoney } from "../../common/function_common/common";
 import ItemList from "./ItemList";
 import EquipmentList from "./EquipmentList";
@@ -38,7 +34,7 @@ const EquipmentShop = () => {
   let equipmentBagWatch = equipmentBag;
   let materialBagWatch = materialBag;
 
-  // 各購入リストの取得
+  // 各購入リストの取得(初回マウント時のみ)
   useEffect(() => {
     dispatch(getStoreEquipment());
   }, []);
