@@ -16,7 +16,6 @@ public class ItemBagTab {
     public String imageUrl;
 
     public ItemBagTab(ItemBag i) {
-        System.out.println(i);
         this.id = i.getId();
         this.itemId = i.getItemId();
         this.quantity = i.getQuantity();

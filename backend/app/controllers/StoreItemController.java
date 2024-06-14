@@ -9,7 +9,7 @@ import javax.persistence.PersistenceException;
 public class StoreItemController extends Controller {
     
     // GET /get-store-item StoreItemController.getStoreItem
-    public static void getStoreEquipment(Long playerId) {
+    public static void getStoreItem(Long playerId) {
         try {
             List<Item> items = Item.findAll();
 

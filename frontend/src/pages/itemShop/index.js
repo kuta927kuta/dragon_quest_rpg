@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Row, Col } from "antd";
 import { getStoreItem } from "../../redux/features/itemStore/itemStoreThunks";
-import { setPlayerDetail, setEquipmentBag, setItemBag, setMaterialBag } from "../../redux/features/player/playerSlice";
+import {
+  setPlayerDetail,
+  setEquipmentBag,
+  setItemBag,
+  setMaterialBag,
+} from "../../redux/features/player/playerSlice";
 import { formattedMoney } from "../../common/function_common/common";
 import SideList from "./UI/SideList";
 import MainList from "./UI/MainList";
@@ -19,9 +24,7 @@ const ItemShop = () => {
   const { detail, itemBag, equipmentBag, materialBag } = useSelector(
     (state) => state.player
   );
-  const { loading, items } = useSelector(
-    (state) => state.equipmentStore
-  );
+  const { loading, items } = useSelector((state) => state.itemStore);
   // const { store } = useSelector((state) => state);
 
   const [message, setMessage] = useState(quote.welcome);
