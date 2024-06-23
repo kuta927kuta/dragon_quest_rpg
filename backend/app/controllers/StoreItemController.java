@@ -11,7 +11,7 @@ public class StoreItemController extends Controller {
     // GET /get-store-item StoreItemController.getStoreItem
     public static void getStoreItem(Long playerId) {
         try {
-            List<Item> items = Item.findAll();
+            List<Item> items = Item.find("SELECT i FROM Item i ORDER BY i.id ASC").fetch();
 
             if (items == null) {
                 renderJSON("Error occurred while fetching equipment data.");
